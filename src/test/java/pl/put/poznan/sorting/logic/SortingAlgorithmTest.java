@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import pl.put.poznan.sorting.logic.algorithms.BubbleSortingAlgorithm;
 import pl.put.poznan.sorting.logic.algorithms.MergeSortingAlgorithm;
 import pl.put.poznan.sorting.logic.algorithms.QuickSortingAlgorithm;
+import pl.put.poznan.sorting.logic.algorithms.SelectionSortingAlgorithm;
 
 public class SortingAlgorithmTest {
 
@@ -71,6 +72,7 @@ public class SortingAlgorithmTest {
         algorithms.add(new BubbleSortingAlgorithm());
         algorithms.add(new MergeSortingAlgorithm());
         algorithms.add(new QuickSortingAlgorithm());
+        algorithms.add(new SelectionSortingAlgorithm());
         return algorithms.stream();
     }
 }
