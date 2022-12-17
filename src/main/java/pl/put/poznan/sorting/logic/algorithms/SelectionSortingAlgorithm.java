@@ -4,7 +4,7 @@ import pl.put.poznan.sorting.logic.SortingAlgorithm;
 
 public class SelectionSortingAlgorithm implements SortingAlgorithm {
 
-    public int[] sort(int[] elements) {
+    public void sort(int[] elements) {
         for (int i = 0; i < elements.length - 1; i++) {
             int minElementIndex = i;
             for (int j = i + 1; j < elements.length; j++) {
@@ -19,10 +19,9 @@ public class SelectionSortingAlgorithm implements SortingAlgorithm {
                 elements[minElementIndex] = temp;
             }
         }
-        return elements;
     }
 
-    public String[] sort(String[] elements) {
+    public void sort(String[] elements) {
         for (int i = 0; i < elements.length - 1; i++) {
             int minElementIndex = i;
             for (int j = i + 1; j < elements.length; j++) {
@@ -37,6 +36,5 @@ public class SelectionSortingAlgorithm implements SortingAlgorithm {
                 elements[minElementIndex] = temp;
             }
         }
-        return elements;
     }
 }

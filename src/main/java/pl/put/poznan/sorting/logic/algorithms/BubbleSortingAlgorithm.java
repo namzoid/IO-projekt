@@ -5,7 +5,7 @@ import pl.put.poznan.sorting.logic.SortingAlgorithm;
 public class BubbleSortingAlgorithm implements SortingAlgorithm {
 
     @Override
-    public int[] sort(int[] elements) {
+    public void sort(int[] elements) {
         int length = elements.length;
         boolean sorted = false;
         while (!sorted) {
@@ -19,11 +19,10 @@ public class BubbleSortingAlgorithm implements SortingAlgorithm {
                 }
             }
         }
-        return elements;
     }
 
     @Override
-    public String[] sort(String[] elements) {
+    public void sort(String[] elements) {
         int length = elements.length;
         boolean sorted = false;
         while (!sorted) {
@@ -37,6 +36,5 @@ public class BubbleSortingAlgorithm implements SortingAlgorithm {
                 }
             }
         }
-        return elements;
     }
 }

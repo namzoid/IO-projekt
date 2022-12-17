@@ -13,55 +13,55 @@ public class SortingAlgorithmTest {
     @ParameterizedTest
     @MethodSource("algorithms")
     public void test_intsSimpleInput_correctOutput(SortingAlgorithm algorithm) {
-        int[] input = new int[] {3, 2, 1, -7, 4, 4, 2};
+        int[] array = new int[] {3, 2, 1, -7, 4, 4, 2};
         int[] expected = new int[] {-7, 1, 2, 2, 3, 4, 4};
-        int[] output = algorithm.sort(input);
-        Assertions.assertArrayEquals(expected, output);
+        algorithm.sort(array);
+        Assertions.assertArrayEquals(expected, array);
     }
 
     @ParameterizedTest
     @MethodSource("algorithms")
     public void test_intsSingleItem_correctOutput(SortingAlgorithm algorithm) {
-        int[] input = new int[] {0};
+        int[] array = new int[] {0};
         int[] expected = new int[] {0};
-        int[] output = algorithm.sort(input);
-        Assertions.assertArrayEquals(expected, output);
+        algorithm.sort(array);
+        Assertions.assertArrayEquals(expected, array);
     }
 
     @ParameterizedTest
     @MethodSource("algorithms")
     public void test_intsEmptyInput_correctOutput(SortingAlgorithm algorithm) {
-        int[] input = new int[] {};
+        int[] array = new int[] {};
         int[] expected = new int[] {};
-        int[] output = algorithm.sort(input);
-        Assertions.assertArrayEquals(expected, output);
+        algorithm.sort(array);
+        Assertions.assertArrayEquals(expected, array);
     }
 
     @ParameterizedTest
     @MethodSource("algorithms")
     public void test_stringsSimpleInput_correctOutput(SortingAlgorithm algorithm) {
-        String[] input = new String[] {"abc", "aaa", "a", "abb", "baa"};
+        String[] array = new String[] {"abc", "aaa", "a", "abb", "baa"};
         String[] expected = new String[] {"a", "aaa", "abb", "abc", "baa"};
-        String[] output = algorithm.sort(input);
-        Assertions.assertArrayEquals(expected, output);
+        algorithm.sort(array);
+        Assertions.assertArrayEquals(expected, array);
     }
 
     @ParameterizedTest
     @MethodSource("algorithms")
     public void test_stringsSingleInput_correctOutput(SortingAlgorithm algorithm) {
-        String[] input = new String[] {"a"};
+        String[] array = new String[] {"a"};
         String[] expected = new String[] {"a"};
-        String[] output = algorithm.sort(input);
-        Assertions.assertArrayEquals(expected, output);
+        algorithm.sort(array);
+        Assertions.assertArrayEquals(expected, array);
     }
 
     @ParameterizedTest
     @MethodSource("algorithms")
     public void test_stringsEmptyInput_correctOutput(SortingAlgorithm algorithm) {
-        String[] input = new String[] {};
+        String[] array = new String[] {};
         String[] expected = new String[] {};
-        String[] output = algorithm.sort(input);
-        Assertions.assertArrayEquals(expected, output);
+        algorithm.sort(array);
+        Assertions.assertArrayEquals(expected, array);
     }
 
     public static Stream<SortingAlgorithm> algorithms() {

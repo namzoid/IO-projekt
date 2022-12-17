@@ -5,17 +5,16 @@ import pl.put.poznan.sorting.logic.SortingAlgorithm;
 public class QuickSortingAlgorithm implements SortingAlgorithm {
 
     @Override
-    public int[] sort(int[] elements) {
-        return sort0(elements, 0, elements.length - 1);
+    public void sort(int[] elements) {
+        sort0(elements, 0, elements.length - 1);
     }
 
-    private int[] sort0(int[] elements, int begin, int end) {
+    private void sort0(int[] elements, int begin, int end) {
         if (begin < end) {
             int partitionIndex = partition(elements, begin, end);
             sort0(elements, begin, partitionIndex - 1);
             sort0(elements, partitionIndex + 1, end);
         }
-        return elements;
     }
 
     private int partition(int[] elements, int begin, int end) {
@@ -40,17 +39,16 @@ public class QuickSortingAlgorithm implements SortingAlgorithm {
     }
 
     @Override
-    public String[] sort(String[] elements) {
-        return sort0(elements, 0, elements.length - 1);
+    public void sort(String[] elements) {
+        sort0(elements, 0, elements.length - 1);
     }
 
-    private String[] sort0(String[] elements, int begin, int end) {
+    private void sort0(String[] elements, int begin, int end) {
         if (begin < end) {
             int partitionIndex = partition(elements, begin, end);
             sort0(elements, begin, partitionIndex - 1);
             sort0(elements, partitionIndex + 1, end);
         }
-        return elements;
     }
 
     private int partition(String[] elements, int begin, int end) {
