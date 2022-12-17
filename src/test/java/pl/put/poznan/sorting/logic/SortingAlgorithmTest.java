@@ -71,6 +71,7 @@ public class SortingAlgorithmTest {
         algorithms.add(new QuickSortingAlgorithm());
         algorithms.add(new SelectionSortingAlgorithm());
         algorithms.add(new InsertionSortingAlgorithm());
+        algorithms.add(new HeapSortingAlgorithm());
         return algorithms.stream();
     }
 }

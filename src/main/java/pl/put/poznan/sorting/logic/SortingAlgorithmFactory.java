@@ -16,7 +16,7 @@ public class SortingAlgorithmFactory {
         ALGORITHMS.put("quick_sort", new QuickSortingAlgorithm());
         ALGORITHMS.put("insertion_sort", new InsertionSortingAlgorithm());
         ALGORITHMS.put("selection_sort", new SelectionSortingAlgorithm());
-        // TODO Implement "Radix Sort"
+        ALGORITHMS.put("heap_sort", new HeapSortingAlgorithm());
     }
 
     public static SortingAlgorithm getAlgorithm(String name) {
