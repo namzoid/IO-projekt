@@ -5,6 +5,7 @@ import java.util.Map;
 
 import pl.put.poznan.sorting.logic.algorithms.BubbleSortingAlgorithm;
 import pl.put.poznan.sorting.logic.algorithms.MergeSortingAlgorithm;
+import pl.put.poznan.sorting.logic.exceptions.UnknownAlgorithmException;
 
 public class SortingAlgorithmFactory {
 
@@ -22,7 +23,7 @@ public class SortingAlgorithmFactory {
     public static SortingAlgorithm getAlgorithm(String name) {
         var algorithm = ALGORITHMS.get(name);
         if (algorithm == null)
-            throw new IllegalArgumentException("Unknown sorting algorithm: " + name);
+            throw new UnknownAlgorithmException();
         return algorithm;
     }
 }
