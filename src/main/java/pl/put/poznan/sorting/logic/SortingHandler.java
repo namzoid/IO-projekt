@@ -1,5 +1,7 @@
 package pl.put.poznan.sorting.logic;
 
+import pl.put.poznan.sorting.logic.exceptions.InvalidElementsException;
+
 public class SortingHandler {
 
     private SortingAlgorithm algorithm;
@@ -11,6 +13,10 @@ public class SortingHandler {
     }
 
     public long sort(int[] elements) {
+        if (elements == null) {
+            throw new InvalidElementsException("Array is null");
+        }
+
         long startTime = System.nanoTime();
         algorithm.sort(elements);
         long elapsedNanos = System.nanoTime() - startTime;
@@ -18,6 +24,15 @@ public class SortingHandler {
     }
 
     public long sort(String[] elements) {
+        if (elements == null) {
+            throw new InvalidElementsException("Array is null");
+        }
+
+        for (var element : elements) {
+            if (element == null)
+                throw new InvalidElementsException("Array contains null element");
+        }
+
         long startTime = System.nanoTime();
         algorithm.sort(elements);
         long elapsedNanos = System.nanoTime() - startTime;
