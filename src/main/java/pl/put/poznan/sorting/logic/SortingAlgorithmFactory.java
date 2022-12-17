@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pl.put.poznan.sorting.logic.algorithms.BubbleSortingAlgorithm;
+import pl.put.poznan.sorting.logic.algorithms.MergeSortingAlgorithm;
 
 public class SortingAlgorithmFactory {
 
@@ -11,7 +12,7 @@ public class SortingAlgorithmFactory {
 
     static {
         ALGORITHMS.put("bubble_sort", new BubbleSortingAlgorithm());
-        // TODO Implement "Merge Sort"
+        ALGORITHMS.put("merge_sort", new MergeSortingAlgorithm());
         // TODO Implement "Quick Sort"
         // TODO Implement "Insertion Sort"
         // TODO Implement "Selection Sort"
