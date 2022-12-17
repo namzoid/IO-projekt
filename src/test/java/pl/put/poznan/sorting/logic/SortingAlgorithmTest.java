@@ -8,6 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import pl.put.poznan.sorting.logic.algorithms.BubbleSortingAlgorithm;
 import pl.put.poznan.sorting.logic.algorithms.MergeSortingAlgorithm;
+import pl.put.poznan.sorting.logic.algorithms.QuickSortingAlgorithm;
 
 public class SortingAlgorithmTest {
 
@@ -69,6 +70,7 @@ public class SortingAlgorithmTest {
         var algorithms = new LinkedList<SortingAlgorithm>();
         algorithms.add(new BubbleSortingAlgorithm());
         algorithms.add(new MergeSortingAlgorithm());
+        algorithms.add(new QuickSortingAlgorithm());
         return algorithms.stream();
     }
 }
