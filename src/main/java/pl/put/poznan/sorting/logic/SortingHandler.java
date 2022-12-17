@@ -10,11 +10,17 @@ public class SortingHandler {
         this.algorithm = algorithm;
     }
 
-    public int[] sort(int[] elements) {
-        return algorithm.sort(elements);
+    public long sort(int[] elements) {
+        long startTime = System.nanoTime();
+        algorithm.sort(elements);
+        long elapsedNanos = startTime - System.nanoTime();
+        return elapsedNanos / 1_000_000;
     }
 
-    public String[] sort(String[] elements) {
-        return algorithm.sort(elements);
+    public long sort(String[] elements) {
+        long startTime = System.nanoTime();
+        algorithm.sort(elements);
+        long elapsedNanos = startTime - System.nanoTime();
+        return elapsedNanos / 1_000_000;
     }
 }
