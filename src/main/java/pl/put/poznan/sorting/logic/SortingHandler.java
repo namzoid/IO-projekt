@@ -13,14 +13,14 @@ public class SortingHandler {
     public long sort(int[] elements) {
         long startTime = System.nanoTime();
         algorithm.sort(elements);
-        long elapsedNanos = startTime - System.nanoTime();
+        long elapsedNanos = System.nanoTime() - startTime;
         return elapsedNanos / 1_000_000;
     }
 
     public long sort(String[] elements) {
         long startTime = System.nanoTime();
         algorithm.sort(elements);
-        long elapsedNanos = startTime - System.nanoTime();
+        long elapsedNanos = System.nanoTime() - startTime;
         return elapsedNanos / 1_000_000;
     }
 }
