@@ -6,10 +6,7 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import pl.put.poznan.sorting.logic.algorithms.BubbleSortingAlgorithm;
-import pl.put.poznan.sorting.logic.algorithms.MergeSortingAlgorithm;
-import pl.put.poznan.sorting.logic.algorithms.QuickSortingAlgorithm;
-import pl.put.poznan.sorting.logic.algorithms.SelectionSortingAlgorithm;
+import pl.put.poznan.sorting.logic.algorithms.*;
 
 public class SortingAlgorithmTest {
 
@@ -73,6 +70,7 @@ public class SortingAlgorithmTest {
         algorithms.add(new MergeSortingAlgorithm());
         algorithms.add(new QuickSortingAlgorithm());
         algorithms.add(new SelectionSortingAlgorithm());
+        algorithms.add(new InsertionSortingAlgorithm());
         return algorithms.stream();
     }
 }
