@@ -1,5 +1,7 @@
 package pl.put.poznan.sorting.rest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,9 @@ public class SortingController {
             var algorithm = SortingAlgorithmFactory.getAlgorithm(input.getAlgorithm());
             var elements = input.getElements();
 
+            LOGGER.debug("Sorting integers, algorithm={}, elements={}",
+                    algorithm.getClass().getSimpleName(), elements);
+
             var handler = new SortingHandler();
             handler.setAlgorithm(algorithm);
             long time = handler.sort(elements);
@@ -41,6 +46,9 @@ public class SortingController {
             var algorithm = SortingAlgorithmFactory.getAlgorithm(input.getAlgorithm());
             var elements = input.getElements();
 
+            LOGGER.debug("Sorting strings, algorithm={}, elements={}",
+                    algorithm.getClass().getSimpleName(), elements);
+
             var handler = new SortingHandler();
             handler.setAlgorithm(algorithm);
             long time = handler.sort(elements);
@@ -53,6 +61,8 @@ public class SortingController {
             return SortingResponse.error(CODE_INVALID_ELEMENTS, ex.getMessage());
         }
     }
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(SortingController.class);
 
     private static final int CODE_UNKNOWN_ALGORITHM = 1001;
     private static final int CODE_INVALID_ELEMENTS = 1002;

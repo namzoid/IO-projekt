@@ -1,5 +1,9 @@
 package pl.put.poznan.sorting.logic;
 
+import java.util.Arrays;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.put.poznan.sorting.logic.exceptions.InvalidElementsException;
 
 public class SortingHandler {
@@ -13,6 +17,8 @@ public class SortingHandler {
     }
 
     public long sort(int[] elements) {
+        LOGGER.debug("Sorting elements=" + Arrays.toString(elements));
+
         if (elements == null) {
             throw new InvalidElementsException("Array is null");
         }
@@ -24,6 +30,8 @@ public class SortingHandler {
     }
 
     public long sort(String[] elements) {
+        LOGGER.debug("Sorting elements=" + Arrays.toString(elements));
+
         if (elements == null) {
             throw new InvalidElementsException("Array is null");
         }
@@ -38,4 +46,6 @@ public class SortingHandler {
         long elapsedNanos = System.nanoTime() - startTime;
         return elapsedNanos / 1_000_000;
     }
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(SortingHandler.class);
 }
