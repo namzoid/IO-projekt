@@ -1,5 +1,7 @@
 package pl.put.poznan.sorting.rest;
 
+import java.util.Arrays;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,7 @@ public class SortingController {
             var elements = input.getElements();
 
             LOGGER.debug("Sorting integers, algorithm={}, elements={}",
-                    algorithm.getClass().getSimpleName(), elements);
+                    algorithm.getClass().getSimpleName(), Arrays.toString(elements));
 
             var handler = new SortingHandler();
             handler.setAlgorithm(algorithm);
@@ -47,7 +49,7 @@ public class SortingController {
             var elements = input.getElements();
 
             LOGGER.debug("Sorting strings, algorithm={}, elements={}",
-                    algorithm.getClass().getSimpleName(), elements);
+                    algorithm.getClass().getSimpleName(), Arrays.toString(elements));
 
             var handler = new SortingHandler();
             handler.setAlgorithm(algorithm);
