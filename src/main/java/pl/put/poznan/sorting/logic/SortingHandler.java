@@ -23,6 +23,10 @@ public class SortingHandler {
             throw new InvalidElementsException("Array is null");
         }
 
+        if (elements.length == 0) {
+            throw new InvalidElementsException("Array is empty");
+        }
+
         long startTime = System.nanoTime();
         algorithm.sort(elements);
         long elapsedNanos = System.nanoTime() - startTime;
@@ -34,6 +38,10 @@ public class SortingHandler {
 
         if (elements == null) {
             throw new InvalidElementsException("Array is null");
+        }
+
+        if (elements.length == 0) {
+            throw new InvalidElementsException("Array is empty");
         }
 
         for (var element : elements) {
