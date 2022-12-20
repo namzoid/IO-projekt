@@ -5,6 +5,16 @@ import pl.put.poznan.sorting.logic.SortingAlgorithm;
 public class QuickSortingAlgorithm implements SortingAlgorithm {
 
     @Override
+    public String getId() {
+        return "quick";
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Quick Sort";
+    }
+
+    @Override
     public void sort(int[] elements) {
         sort0(elements, 0, elements.length - 1);
     }

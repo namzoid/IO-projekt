@@ -7,6 +7,16 @@ import pl.put.poznan.sorting.logic.SortingAlgorithm;
 public class MergeSortingAlgorithm implements SortingAlgorithm {
 
     @Override
+    public String getId() {
+        return "merge";
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Merge Sort";
+    }
+
+    @Override
     public void sort(int[] elements) {
         int n = elements.length;
         if (n < 2)

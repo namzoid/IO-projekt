@@ -5,6 +5,16 @@ import pl.put.poznan.sorting.logic.SortingAlgorithm;
 public class BubbleSortingAlgorithm implements SortingAlgorithm {
 
     @Override
+    public String getId() {
+        return "bubble";
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Bubble Sort";
+    }
+
+    @Override
     public void sort(int[] elements) {
         int length = elements.length;
         boolean sorted = false;

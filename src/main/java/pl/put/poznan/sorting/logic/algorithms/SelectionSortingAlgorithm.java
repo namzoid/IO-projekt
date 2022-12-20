@@ -4,6 +4,16 @@ import pl.put.poznan.sorting.logic.SortingAlgorithm;
 
 public class SelectionSortingAlgorithm implements SortingAlgorithm {
 
+    @Override
+    public String getId() {
+        return "selection";
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Selection Sort";
+    }
+
     public void sort(int[] elements) {
         for (int i = 0; i < elements.length - 1; i++) {
             int minElementIndex = i;

@@ -8,6 +8,16 @@ import pl.put.poznan.sorting.logic.SortingAlgorithm;
 public class HeapSortingAlgorithm implements SortingAlgorithm {
 
     @Override
+    public String getId() {
+        return "heap";
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Heap Sort";
+    }
+
+    @Override
     public void sort(int[] elements) {
         var queue = new PriorityQueue<Integer>();
         for (int element : elements)
