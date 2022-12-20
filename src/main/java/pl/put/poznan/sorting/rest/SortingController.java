@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import pl.put.poznan.sorting.logic.SortingAlgorithmFactory;
+import pl.put.poznan.sorting.logic.SortingAlgorithmProvider;
 import pl.put.poznan.sorting.logic.SortingHandler;
 import pl.put.poznan.sorting.logic.exceptions.InvalidElementsException;
 import pl.put.poznan.sorting.logic.exceptions.UnknownAlgorithmException;
@@ -23,7 +23,7 @@ public class SortingController {
     @GetMapping(value = "/integers", produces = "application/json", consumes = "application/json")
     public SortingResponse<SortingOutputIntegers> sortIntegers(@RequestBody SortingInputIntegers input) {
         try {
-            var algorithm = SortingAlgorithmFactory.getAlgorithm(input.getAlgorithm());
+            var algorithm = SortingAlgorithmProvider.getAlgorithm(input.getAlgorithm());
             var elements = input.getElements();
 
             LOGGER.debug("Sorting integers, algorithm={}, elements={}",
@@ -45,7 +45,7 @@ public class SortingController {
     @GetMapping(value = "/strings", produces = "application/json", consumes = "application/json")
     public SortingResponse<SortingOutputStrings> sortStrings(@RequestBody SortingInputStrings input) {
         try {
-            var algorithm = SortingAlgorithmFactory.getAlgorithm(input.getAlgorithm());
+            var algorithm = SortingAlgorithmProvider.getAlgorithm(input.getAlgorithm());
             var elements = input.getElements();
 
             LOGGER.debug("Sorting strings, algorithm={}, elements={}",

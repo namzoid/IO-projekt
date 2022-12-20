@@ -1,12 +1,14 @@
 package pl.put.poznan.sorting.logic;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import pl.put.poznan.sorting.logic.algorithms.*;
 import pl.put.poznan.sorting.logic.exceptions.UnknownAlgorithmException;
 
-public class SortingAlgorithmFactory {
+public class SortingAlgorithmProvider {
 
     private static final Map<String, SortingAlgorithm> ALGORITHMS = new LinkedHashMap<>();
 
@@ -28,5 +30,9 @@ public class SortingAlgorithmFactory {
         if (algorithm == null)
             throw new UnknownAlgorithmException();
         return algorithm;
+    }
+
+    public static Collection<SortingAlgorithm> getRegisteredAlgorithms() {
+        return Collections.unmodifiableCollection(ALGORITHMS.values());
     }
 }
