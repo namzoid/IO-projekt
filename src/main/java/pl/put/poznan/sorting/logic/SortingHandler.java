@@ -6,16 +6,33 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.put.poznan.sorting.logic.exceptions.InvalidElementsException;
 
+/**
+ * Represents sorting handler to sort elements using specified algorithm
+ */
 public class SortingHandler {
 
     private SortingAlgorithm algorithm;
 
+    /**
+     * Create empty instance
+     */
     public SortingHandler() {}
 
+    /**
+     * Set sorting algorithm
+     *
+     * @param algorithm sorting algorithm
+     */
     public void setAlgorithm(SortingAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
+    /**
+     * Sort integer elements in ascending order
+     *
+     * @param elements elements to sort
+     * @return millis took to sort elements
+     */
     public long sort(int[] elements) {
         LOGGER.debug("Sorting elements=" + Arrays.toString(elements));
 
@@ -33,6 +50,12 @@ public class SortingHandler {
         return elapsedNanos / 1_000_000;
     }
 
+    /**
+     * Sort string elements in ascending order
+     *
+     * @param elements elements to sort
+     * @return millis took to sort elements
+     */
     public long sort(String[] elements) {
         LOGGER.debug("Sorting elements=" + Arrays.toString(elements));
 
