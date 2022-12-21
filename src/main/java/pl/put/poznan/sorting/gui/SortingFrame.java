@@ -45,10 +45,15 @@ public class SortingFrame extends JFrame {
      */
     private void installComponents() {
         setLayout(new MigLayout());
-        add(createSettingsPanel(), "top, push");
+
+        /*
+         * | Settings | Input | Output |
+         * |       Button + Status     |
+         */
+        add(createSettingsPanel(), "top, push"); // align on top, pushes other panels
         add(createInputPanel(), "top");
-        add(createOutputPanel(), "top, wrap");
-        add(createButtonAndStatusPanel(), "top, span");
+        add(createOutputPanel(), "top, wrap"); // wrap - next panel will be placed on the next row
+        add(createButtonAndStatusPanel(), "top, span"); // span - takes 3 columns
     }
 
     /**
@@ -57,7 +62,7 @@ public class SortingFrame extends JFrame {
      * @return panel
      */
     private JPanel createSettingsPanel() {
-        var panel = new JPanel(new MigLayout("wrap"));
+        var panel = new JPanel(new MigLayout("wrap")); // wrap - each element will be placed on next row
 
         // Add elements type selection
         panel.add(new JLabel("Type:"));
@@ -139,7 +144,7 @@ public class SortingFrame extends JFrame {
      * Process "Sort" button click.
      */
     private void onSortButtonClick() {
-        // Reset output
+        // Reset output & status message
         outputTextArea.setText(null);
         statusLabel.setText(null);
         algorithmCheckboxMap.forEach((algorithmId, checkbox) -> {
@@ -147,21 +152,21 @@ public class SortingFrame extends JFrame {
             checkbox.setText(algorithm.getDisplayName());
         });
 
-        // Prepare elements
-        var rawElements = new LinkedList<>(Arrays.asList(inputTextArea.getText().split("\r?\n")));
-        rawElements.removeIf(String::isBlank);
+        // Remove empty lines and check if there are elements to sort
+        var lines = new LinkedList<>(Arrays.asList(inputTextArea.getText().split("\r?\n")));
+        lines.removeIf(String::isBlank);
 
-        if (rawElements.isEmpty()) {
+        if (lines.isEmpty()) {
             statusLabel.setText("Error: Nothing to sort.");
             return;
         }
 
-        // Check : No algorithm selected
+        // Check if no algorithms selected
         boolean isAnyAlgorithmSelected = algorithmCheckboxMap
                 .values().stream()
                 .anyMatch(AbstractButton::isSelected);
         if (!isAnyAlgorithmSelected) {
-            statusLabel.setText("Error: No algorithm selected.");
+            statusLabel.setText("Error: No algorithms selected.");
             return;
         }
 
@@ -169,11 +174,11 @@ public class SortingFrame extends JFrame {
         switch (elementTypeComboBox.getSelectedIndex()) {
             // Integers selected
             case -1, 0 -> {
-                sortIntegers(rawElements);
+                sortIntegers(lines);
             }
             // Strings selected
             case 1 -> {
-                sortStrings(rawElements);
+                sortStrings(lines);
             }
         }
     }
@@ -181,13 +186,13 @@ public class SortingFrame extends JFrame {
     /**
      * Sort integers and show the result in GUI.
      *
-     * @param rawElements elements got from input text area
+     * @param lines elements got from input text area
      */
-    private void sortIntegers(List<String> rawElements) {
+    private void sortIntegers(List<String> lines) {
         // Convert to integers & collect to array
         int i = 0;
-        int[] elements = new int[rawElements.size()];
-        for (var rawElement : rawElements) {
+        int[] elements = new int[lines.size()];
+        for (var rawElement : lines) {
             try {
                 elements[i++] = Integer.parseInt(rawElement);
             } catch (NumberFormatException ex) {
@@ -227,11 +232,11 @@ public class SortingFrame extends JFrame {
     /**
      * Sort strings and show the result in GUI.
      *
-     * @param rawElements elements got from input text area
+     * @param lines elements got from input text area
      */
-    private void sortStrings(List<String> rawElements) {
+    private void sortStrings(List<String> lines) {
         // Collect to array
-        var elements = rawElements.toArray(new String[0]);
+        var elements = lines.toArray(new String[0]);
 
         // Sort
         var handler = new SortingHandler();
