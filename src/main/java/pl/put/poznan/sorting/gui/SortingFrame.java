@@ -2,16 +2,15 @@ package pl.put.poznan.sorting.gui;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.util.*;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import net.miginfocom.swing.MigLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pl.put.poznan.sorting.logic.SortingAlgorithm;
 import pl.put.poznan.sorting.logic.SortingAlgorithmProvider;
 import pl.put.poznan.sorting.logic.SortingHandler;
 
@@ -20,7 +19,7 @@ import pl.put.poznan.sorting.logic.SortingHandler;
  */
 public class SortingFrame extends JFrame {
 
-    private Map<String, JCheckBox> algorithmCheckboxMap = new LinkedHashMap<>();
+    private Map<SortingAlgorithm, JCheckBox> algorithmCheckboxMap = new LinkedHashMap<>();
     private JComboBox<String> elementTypeComboBox;
     private JTextArea inputTextArea;
     private JTextArea outputTextArea;
@@ -74,9 +73,10 @@ public class SortingFrame extends JFrame {
         SortingAlgorithmProvider
                 .getRegisteredAlgorithms()
                 .forEach(algorithm -> {
+                    // Create checkbox for each algorithm and put in a map for future use
                     var checkbox = new JCheckBox(algorithm.getDisplayName(), false);
-                    algorithmCheckboxMap.put(algorithm.getId(), checkbox);
                     panel.add(checkbox);
+                    algorithmCheckboxMap.put(algorithm, checkbox);
                 });
 
         return panel;
@@ -147,8 +147,7 @@ public class SortingFrame extends JFrame {
         // Reset output & status message
         outputTextArea.setText(null);
         statusLabel.setText(null);
-        algorithmCheckboxMap.forEach((algorithmId, checkbox) -> {
-            var algorithm = SortingAlgorithmProvider.getAlgorithm(algorithmId);
+        algorithmCheckboxMap.forEach((algorithm, checkbox) -> {
             checkbox.setText(algorithm.getDisplayName());
         });
 
@@ -205,13 +204,12 @@ public class SortingFrame extends JFrame {
         var handler = new SortingHandler();
         int[] output = null;
         for (var entry : algorithmCheckboxMap.entrySet()) {
-            var algorithmId = entry.getKey();
+            var algorithm = entry.getKey();
             var checkbox = entry.getValue();
 
             if (checkbox.isSelected()) {
                 var elementsToSort = Arrays.copyOf(elements, elements.length);
 
-                var algorithm = SortingAlgorithmProvider.getAlgorithm(algorithmId);
                 handler.setAlgorithm(algorithm);
                 long time = handler.sort(elementsToSort);
                 if (output == null)
@@ -242,13 +240,12 @@ public class SortingFrame extends JFrame {
         var handler = new SortingHandler();
         String[] output = null;
         for (var entry : algorithmCheckboxMap.entrySet()) {
-            var algorithmId = entry.getKey();
+            var algorithm = entry.getKey();
             var checkbox = entry.getValue();
 
             if (checkbox.isSelected()) {
                 var elementsToSort = Arrays.copyOf(elements, elements.length);
 
-                var algorithm = SortingAlgorithmProvider.getAlgorithm(algorithmId);
                 handler.setAlgorithm(algorithm);
                 long time = handler.sort(elementsToSort);
                 if (output == null)
