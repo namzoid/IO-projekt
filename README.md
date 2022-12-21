@@ -71,13 +71,16 @@ Nazwę (ID) każdego algorytmu można znaleźć w odpowiedniej klasie jego imple
 - Quick Sort: ```quick```
 - Selection Sort: ```selection```
 
-
+## Diagram UML:
+![IO-projekt UML Diagram](class_diagram/class_diagram.png)
 
 ## Dodatkowe informacje/pliki:
 
 [Sorting Madness.xlsx](https://onedrive.live.com/edit.aspx?resid=9DBD128686E05269!3566&ithint=file%2cxlsx&authkey=!ALdSodD-8Qm6dzY)
 
 [Trello](https://trello.com/b/tmQee0hb/sorting-madness) + skonfigurowane Github Issues
+
+Wykorzystany wzorzec projektowy: wzorzec strategii dla poszczególnych algorytmów sortowania i zbierania czasu wykonania (```SortingAlgorithm``` jest strategią, ```SortingHandler``` - kontekstem).
 
 Zespół:
 
