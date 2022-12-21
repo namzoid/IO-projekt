@@ -160,25 +160,27 @@ public class SortingFrame extends JFrame {
             return;
         }
 
+        // Collect algorithms to use
+        var algorithmsToUse = new LinkedHashMap<SortingAlgorithm, JCheckBox>();
+        for (var entry : algorithmCheckboxMap.entrySet()) {
+            if (entry.getValue().isSelected())
+                algorithmsToUse.put(entry.getKey(), entry.getValue());
+        }
+
         // Check if no algorithms selected
-        boolean isAnyAlgorithmSelected = algorithmCheckboxMap
-                .values().stream()
-                .anyMatch(AbstractButton::isSelected);
-        if (!isAnyAlgorithmSelected) {
+        if (algorithmsToUse.isEmpty()) {
             statusLabel.setText("Error: No algorithms selected.");
             return;
         }
 
-        // Process
+        // Sort elements
         switch (elementTypeComboBox.getSelectedIndex()) {
-            // Integers selected
-            case -1, 0 -> {
-                sortIntegers(lines);
-            }
-            // Strings selected
-            case 1 -> {
-                sortStrings(lines);
-            }
+            // Integers to sort
+            case -1, 0 ->
+                    sortAsIntegers(lines, algorithmsToUse);
+            // Strings to sort
+            case 1 ->
+                    sortAsStrings(lines, algorithmsToUse);
         }
     }
 
@@ -187,7 +189,7 @@ public class SortingFrame extends JFrame {
      *
      * @param lines elements got from input text area
      */
-    private void sortIntegers(List<String> lines) {
+    private void sortAsIntegers(List<String> lines, Map<SortingAlgorithm, JCheckBox> algorithmsToUse) {
         // Convert to integers & collect to array
         int i = 0;
         int[] elements = new int[lines.size()];
@@ -200,27 +202,28 @@ public class SortingFrame extends JFrame {
             }
         }
 
-        // Sort
+        // Sort and store first result for output
+        int[] sortedElements = null;
+
         var handler = new SortingHandler();
-        int[] output = null;
-        for (var entry : algorithmCheckboxMap.entrySet()) {
+        for (var entry : algorithmsToUse.entrySet()) {
+            var elementsCopy = Arrays.copyOf(elements, elements.length);
             var algorithm = entry.getKey();
+
+            handler.setAlgorithm(algorithm);
+            long time = handler.sort(elementsCopy);
+            if (sortedElements == null)
+                sortedElements = elementsCopy;
+
+            // Update millis elapsed near the algorithm checkbox
             var checkbox = entry.getValue();
-
-            if (checkbox.isSelected()) {
-                var elementsToSort = Arrays.copyOf(elements, elements.length);
-
-                handler.setAlgorithm(algorithm);
-                long time = handler.sort(elementsToSort);
-                if (output == null)
-                    output = elementsToSort;
-
-                checkbox.setText(String.format("%s (%dms)", checkbox.getText(), time));
-            }
+            checkbox.setText(String.format("%s (%dms)", checkbox.getText(), time));
         }
 
+        // Output sorted elements line by line
         var outputJoiner = new StringJoiner("\n");
-        for (var element : output)
+        //noinspection ConstantConditions
+        for (var element : sortedElements)
             outputJoiner.add(String.valueOf(element));
         outputTextArea.setText(outputJoiner.toString());
 
@@ -232,31 +235,32 @@ public class SortingFrame extends JFrame {
      *
      * @param lines elements got from input text area
      */
-    private void sortStrings(List<String> lines) {
+    private void sortAsStrings(List<String> lines, Map<SortingAlgorithm, JCheckBox> algorithmsToUse) {
         // Collect to array
         var elements = lines.toArray(new String[0]);
 
-        // Sort
+        // Sort and store first result for output
+        String[] sortedElements = null;
+
         var handler = new SortingHandler();
-        String[] output = null;
-        for (var entry : algorithmCheckboxMap.entrySet()) {
+        for (var entry : algorithmsToUse.entrySet()) {
+            var elementsCopy = Arrays.copyOf(elements, elements.length);
             var algorithm = entry.getKey();
+
+            handler.setAlgorithm(algorithm);
+            long time = handler.sort(elementsCopy);
+            if (sortedElements == null)
+                sortedElements = elementsCopy;
+
+            // Update millis elapsed near the algorithm checkbox
             var checkbox = entry.getValue();
-
-            if (checkbox.isSelected()) {
-                var elementsToSort = Arrays.copyOf(elements, elements.length);
-
-                handler.setAlgorithm(algorithm);
-                long time = handler.sort(elementsToSort);
-                if (output == null)
-                    output = elementsToSort;
-
-                checkbox.setText(String.format("%s (%dms)", checkbox.getText(), time));
-            }
+            checkbox.setText(String.format("%s (%dms)", checkbox.getText(), time));
         }
 
+        // Output sorted elements line by line
         var outputJoiner = new StringJoiner("\n");
-        for (var element : output)
+        //noinspection ConstantConditions
+        for (var element : sortedElements)
             outputJoiner.add(element);
         outputTextArea.setText(outputJoiner.toString());
 
@@ -273,6 +277,8 @@ public class SortingFrame extends JFrame {
 
     static {
         LOGGER = LoggerFactory.getLogger(SortingFrame.class);
+
+        // Setup FlatLaf GUI design
         try {
             UIManager.setLookAndFeel(new FlatIntelliJLaf());
             UIManager.put("TitlePane.unifiedBackground", true);
