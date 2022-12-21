@@ -5,6 +5,11 @@ package pl.put.poznan.sorting.logic.exceptions;
  */
 public class InvalidElementsException extends RuntimeException {
 
+    /**
+     * Construct a new exception with specified message.
+     *
+     * @param message message
+     */
     public InvalidElementsException(String message) {
         super(message);
     }

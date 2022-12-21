@@ -6,28 +6,28 @@ package pl.put.poznan.sorting.logic;
 public interface SortingAlgorithm {
 
     /**
-     * Return algorithm ID
+     * Return algorithm ID.
      *
      * @return algorithm id
      */
     public String getId();
 
     /**
-     * Return algorithm display name
+     * Return algorithm display name.
      *
      * @return algorithm display name
      */
     public String getDisplayName();
 
     /**
-     * Sort integer elements
+     * Sort integer elements (ascending order).
      *
      * @param elements elements to sort
      */
     public void sort(int[] elements);
 
     /**
-     * Sort string elements
+     * Sort string elements (ascending order).
      *
      * @param elements elements to sort
      */

@@ -1,5 +1,8 @@
 package pl.put.poznan.sorting.rest.model.output;
 
+/**
+ * Represents REST API sorting output of strings.
+ */
 public class SortingOutputStrings extends SortingOutput {
 
     private String[] elements;
@@ -9,6 +12,11 @@ public class SortingOutputStrings extends SortingOutput {
         this.elements = elements;
     }
 
+    /**
+     * Return elements sorted.
+     *
+     * @return elements
+     */
     public String[] getElements() {
         return elements;
     }

@@ -17,9 +17,19 @@ import pl.put.poznan.sorting.rest.model.input.SortingInputStrings;
 import pl.put.poznan.sorting.rest.model.output.SortingOutputIntegers;
 import pl.put.poznan.sorting.rest.model.output.SortingOutputStrings;
 
+/**
+ * Represents REST API controller.<br>
+ * The server runs on local port 8080 by default.
+ */
 @RestController
 public class SortingController {
 
+    /**
+     * Sort integers.<br>
+     *
+     * @param input sort integers input
+     * @return output
+     */
     @GetMapping(value = "/integers", produces = "application/json", consumes = "application/json")
     public SortingResponse<SortingOutputIntegers> sortIntegers(@RequestBody SortingInputIntegers input) {
         try {
@@ -42,6 +52,12 @@ public class SortingController {
         }
     }
 
+    /**
+     * Sort strings.<br>
+     *
+     * @param input sort strings input
+     * @return output
+     */
     @GetMapping(value = "/strings", produces = "application/json", consumes = "application/json")
     public SortingResponse<SortingOutputStrings> sortStrings(@RequestBody SortingInputStrings input) {
         try {

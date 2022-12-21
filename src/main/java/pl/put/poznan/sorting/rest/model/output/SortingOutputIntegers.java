@@ -1,5 +1,8 @@
 package pl.put.poznan.sorting.rest.model.output;
 
+/**
+ * Represents REST API sorting output of integers.
+ */
 public class SortingOutputIntegers extends SortingOutput {
 
     private int[] elements;
@@ -9,6 +12,11 @@ public class SortingOutputIntegers extends SortingOutput {
         this.elements = elements;
     }
 
+    /**
+     * Return elements sorted.
+     *
+     * @return elements
+     */
     public int[] getElements() {
         return elements;
     }

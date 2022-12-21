@@ -9,6 +9,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import pl.put.poznan.sorting.gui.SortingFrame;
 
+/**
+ * Entry point of application.
+ * Runs REST API service and GUI (optionally).
+ */
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.sorting.rest"})
 public class SortingApplication {
 

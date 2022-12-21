@@ -15,6 +15,9 @@ import org.slf4j.LoggerFactory;
 import pl.put.poznan.sorting.logic.SortingAlgorithmProvider;
 import pl.put.poznan.sorting.logic.SortingHandler;
 
+/**
+ * Represents main GUI frame.
+ */
 public class SortingFrame extends JFrame {
 
     private Map<String, JCheckBox> algorithmCheckboxMap = new LinkedHashMap<>();
@@ -24,6 +27,9 @@ public class SortingFrame extends JFrame {
     private JLabel statusLabel;
     private DefaultTableModel timeTableModel = new DefaultTableModel();
 
+    /**
+     * Construct and show GUI.
+     */
     public SortingFrame() {
         setTitle("Sorting Madness");
         setSize(470, 340);
@@ -34,6 +40,9 @@ public class SortingFrame extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Add all in-frame components.
+     */
     private void installComponents() {
         setLayout(new MigLayout());
         add(createSettingsPanel(), "top, push");
@@ -42,6 +51,11 @@ public class SortingFrame extends JFrame {
         add(createButtonAndStatusPanel(), "top, span");
     }
 
+    /**
+     * Create and fill settings panel consisting of data type and algorithms to select.
+     *
+     * @return panel
+     */
     private JPanel createSettingsPanel() {
         var panel = new JPanel(new MigLayout("wrap"));
 
@@ -63,6 +77,11 @@ public class SortingFrame extends JFrame {
         return panel;
     }
 
+    /**
+     * Create and fill input panel consisting of input text area, where user should enter elements to sort.
+     *
+     * @return panel
+     */
     private JPanel createInputPanel() {
         var panel = new JPanel(new MigLayout("wrap"));
 
@@ -74,6 +93,11 @@ public class SortingFrame extends JFrame {
         return panel;
     }
 
+    /**
+     * Create and fill output panel consisting of output text area, where sorted elements will show up.
+     *
+     * @return panel
+     */
     private JPanel createOutputPanel() {
         var panel = new JPanel(new MigLayout("wrap"));
 
@@ -86,6 +110,11 @@ public class SortingFrame extends JFrame {
         return panel;
     }
 
+    /**
+     * Create and fill button-status panel consisting of "Sort" button and result status message (label).
+     *
+     * @return panel
+     */
     private JPanel createButtonAndStatusPanel() {
         var panel = new JPanel(new MigLayout());
 
@@ -106,6 +135,9 @@ public class SortingFrame extends JFrame {
         return panel;
     }
 
+    /**
+     * Process "Sort" button click.
+     */
     private void onSortButtonClick() {
         // Reset output
         outputTextArea.setText(null);
@@ -146,6 +178,11 @@ public class SortingFrame extends JFrame {
         }
     }
 
+    /**
+     * Sort integers and show the result in GUI.
+     *
+     * @param rawElements elements got from input text area
+     */
     private void sortIntegers(List<String> rawElements) {
         // Convert to integers & collect to array
         int i = 0;
@@ -187,6 +224,11 @@ public class SortingFrame extends JFrame {
         statusLabel.setText("Success!");
     }
 
+    /**
+     * Sort strings and show the result in GUI.
+     *
+     * @param rawElements elements got from input text area
+     */
     private void sortStrings(List<String> rawElements) {
         // Collect to array
         var elements = rawElements.toArray(new String[0]);
@@ -222,7 +264,7 @@ public class SortingFrame extends JFrame {
     private static final Logger LOGGER;
 
 
-    // To run GUI without Spring (quick run)
+    // Used to run GUI without Spring (fast testing / feedback)
     public static void main(String[] args) {
         SwingUtilities.invokeLater(SortingFrame::new);
     }
