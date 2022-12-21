@@ -4,23 +4,26 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>530</y>
-      <w>190</w>
+      <x>430</x>
+      <y>590</y>
+      <w>220</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 SortingAlgorithm
 --
++getId() : String
++getDisplayName() : String
 +sort(integers: int[]) : long
-+sort(strings: String[]) : long</panel_attributes>
++sort(strings: String[]) : long
+bg=#7ACFF5</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>530</y>
+      <x>720</x>
+      <y>590</y>
       <w>280</w>
       <h>120</h>
     </coordinates>
@@ -30,305 +33,335 @@ SortingAlgorithm
 --
 +setAlgorithm(algorithm: SortingAlgorithm)
 +sort(integers: int[]) : long
-+sort(strings: String[]) : long</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>480</x>
-      <y>580</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>430</x>
-      <y>150</y>
-      <w>220</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>/SortingInput/
---
--algorithm: String
---
-+getAlgorithm() : String</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>720</x>
-      <y>150</y>
-      <w>220</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>/SortingOutput/
---
--time: long
---
-+getTime() : long</panel_attributes>
++sort(strings: String[]) : long
+bg=#7ACFF5</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>160</x>
-      <y>320</y>
+      <y>240</y>
       <w>220</w>
-      <h>120</h>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>SortingInputIntegers
+    <panel_attributes>/SortingInput/
 --
--elements: int[]
 -algorithm: String
 --
-+getElements() : int[]
-+getAlgorithm() : String</panel_attributes>
++getAlgorithm() : String
+bg=#7ACFF5</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
-      <y>320</y>
+      <x>710</x>
+      <y>240</y>
       <w>220</w>
-      <h>120</h>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>/SortingOutput/
+--
+-time: long
+--
++getTime() : long
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>370</y>
+      <w>220</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>SortingInputIntegers
+--
+-elements: int[]
+--
++getElements() : int[]
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>370</y>
+      <w>220</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>SortingInputStrings
 --
 -elements: String[]
--algorithm: String
 --
 +getElements() : String[]
-+getAlgorithm() : String</panel_attributes>
+bg=#7ACFF5</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>370</y>
+      <w>220</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>SortingOutputStrings
+--
+-elements: String[]
+--
++getElements() : String[]
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>370</y>
+      <w>220</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>SortingOutputIntegers
+--
+-elements: int[]
+--
++getElements() : int[]
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>750</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>BubbleSortingAlgorithm
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>810</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>MergeSortingAlgorithm
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>750</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>HeapSortingAlgorithm
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>870</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>QuickSortingAlgorithm
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>810</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>InsertionSortingAlgorithm
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>870</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>SelectionSortingAlgorithm
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>760</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>120</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>SortingController
+--
++sortIntegers
++sortStrings
+bg=#7ACFF5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>150</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>150</y>
+      <w>220</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>200.0;90.0;200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>660</x>
+      <y>50</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>REST API Controller
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>80</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;40.0;110.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>530</x>
-      <y>260</y>
-      <w>30</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>250</x>
-      <y>260</y>
-      <w>310</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>290.0;10.0;290.0;40.0;10.0;40.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>720</x>
-      <y>320</y>
-      <w>220</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>SortingOutputStrings
---
--elements: String[]
--time: long
---
-+getElements() : String[]
-+getTime() : long</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>990</x>
-      <y>320</y>
-      <w>220</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>SortingOutputIntegers
---
--elements: int[]
--time: long
---
-+getElements() : int[]
-+getTime() : long</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>820</x>
-      <y>260</y>
-      <w>30</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>820</x>
-      <y>260</y>
-      <w>300</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0;280.0;40.0;280.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>170</x>
       <y>700</y>
-      <w>190</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>BubbleSortingAlgorithm
---
-+sort(integers: int[]) : long
-+sort(strings: String[]) : long</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>170</x>
-      <y>790</y>
-      <w>190</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>MergeSortingAlgorithm
---
-+sort(integers: int[]) : long
-+sort(strings: String[]) : long</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>420</x>
-      <y>700</y>
-      <w>190</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>HeapSortingAlgorithm
---
-+sort(integers: int[]) : long
-+sort(strings: String[]) : long</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>170</x>
-      <y>880</y>
-      <w>190</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>QuickSortingAlgorithm
---
-+sort(integers: int[]) : long
-+sort(strings: String[]) : long</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>420</x>
-      <y>790</y>
-      <w>190</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>InsertionSortingAlgorithm
---
-+sort(integers: int[]) : long
-+sort(strings: String[]) : long</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>420</x>
-      <y>880</y>
-      <w>190</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>SelectionSortingAlgorithm
---
-+sort(integers: int[]) : long
-+sort(strings: String[]) : long</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>380</x>
-      <y>640</y>
       <w>30</w>
-      <h>300</h>
+      <h>210</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;280.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>730</y>
-      <w>90</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>350</x>
+      <x>500</x>
       <y>820</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
+    <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>910</y>
+      <x>500</x>
+      <y>880</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
+    <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
+    <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>0</y>
-      <w>590</w>
-      <h>120</h>
+      <x>640</x>
+      <y>640</y>
+      <w>100</w>
+      <h>30</h>
     </coordinates>
-    <panel_attributes>SortingController
---
-+sortIntegers(input: SortingInputIntegers) : SortingResponse&lt;SortingOutputIntegers&gt;
-+sortStrings(input: SortingInputStrings) : SortingResponse&lt;SortingOutputStrings&gt;
---
-Responsibilities
-- REST API Controller</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>310</y>
+      <w>150</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;130.0;40.0;130.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>310</y>
+      <w>160</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;140.0;40.0;10.0;40.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>310</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;120.0;40.0;120.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>310</y>
+      <w>150</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;130.0;40.0;10.0;40.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>
