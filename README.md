@@ -72,8 +72,6 @@ Nazwę (ID) każdego algorytmu można znaleźć w odpowiedniej klasie jego imple
 - Selection Sort: ```selection```
 
 
-## UML Diagram:
-![IO-projekt UML Diagram](class_diagram/class_diagram.png)
 
 ## Dodatkowe informacje/pliki:
 
